@@ -20,7 +20,7 @@ interface Location {
   lng: number;
 }
 
-const Veterinarians: React.FC = () => {
+export const Veterinarians: React.FC = () => {
   const [vets, setVets] = useState<Veterinarian[]>([]);
   const [userLocation, setUserLocation] = useState<Location | null>(null);
 
@@ -87,4 +87,4 @@ const Veterinarians: React.FC = () => {
   );
 };
 
-export default Veterinarians;
+// export default Veterinarians;

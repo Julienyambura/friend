@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import "../styles/style.css";
 
-const AboutUs: React.FC = () => {
+export const AboutUs: React.FC = () => {
   return (
     <motion.div
       className="about-us"
@@ -59,4 +59,4 @@ const AboutUs: React.FC = () => {
   );
 };
 
-export default AboutUs;
+// export default AboutUs;

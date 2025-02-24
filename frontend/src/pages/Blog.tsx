@@ -13,7 +13,7 @@ interface BlogPost {
   image: string;
 }
 
-const Blog: React.FC = () => {
+export const Blog: React.FC = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
@@ -55,4 +55,4 @@ const Blog: React.FC = () => {
   );
 };
 
-export default Blog;
+// export default Blog;

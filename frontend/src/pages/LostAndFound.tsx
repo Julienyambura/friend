@@ -14,7 +14,7 @@ interface LostAnimal {
   lastSeen: string;
 }
 
-const LostAndFound: React.FC = () => {
+export const LostAndFound: React.FC = () => {
   const [lostAnimals, setLostAnimals] = useState<LostAnimal[]>([]);
 
   useEffect(() => {
@@ -64,4 +64,4 @@ const LostAndFound: React.FC = () => {
   );
 };
 
-export default LostAndFound;
+// export default LostAndFound;

@@ -20,7 +20,7 @@ interface Location {
   lng: number;
 }
 
-const Shelters: React.FC = () => {
+export const Shelters: React.FC = () => {
   const [shelters, setShelters] = useState<Shelter[]>([]);
   const [userLocation, setUserLocation] = useState<Location | null>(null);
 
@@ -88,4 +88,4 @@ const Shelters: React.FC = () => {
   );
 };
 
-export default Shelters;
+// export default Shelters;
