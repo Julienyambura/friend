@@ -6,6 +6,7 @@ import "../styles/style.css";
 
 export const AboutUs: React.FC = () => {
   return (
+    // <h1>about me</h1>
     <motion.div
       className="about-us"
       initial={{ opacity: 0 }}

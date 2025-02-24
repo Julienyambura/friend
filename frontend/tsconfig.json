@@ -18,9 +18,9 @@
   },
   "include": [
     "public",
-    "src/ components",
-    "src/ pages",
-    "src/ styles",
-    "src/ App.tsx"
+    "src/components",
+    "src/pages",
+    "src/styles",
+    "src/App.tsx"
   ]
 }

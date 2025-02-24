@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "../styles/style.css";
 
-const Navbar: React.FC = () => {
+export const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
       <motion.div
@@ -52,4 +52,4 @@ const Navbar: React.FC = () => {
   );
 };
 
-export default Navbar;
+// export default Navbar;
