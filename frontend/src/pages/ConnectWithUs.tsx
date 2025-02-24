@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import "../styles/style.css";
 
-const ConnectWithUs: React.FC = () => {
+export const ConnectWithUs: React.FC = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle form submission logic here
@@ -86,4 +86,4 @@ const ConnectWithUs: React.FC = () => {
   );
 };
 
-export default ConnectWithUs;
+// export default ConnectWithUs;
