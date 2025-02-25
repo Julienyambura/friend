@@ -16,10 +16,19 @@ import { Shelters } from "./pages/Shelters";
 import { AboutUs } from "./pages/AboutUs";
 // import { AboutUs } from "./pages/AboutUs";
 export const App: React.FC = () => {
+  const backgroundImageUrl = "path_to_your_image.jpg";
   return (
     // <h1>trial home</h1>
     <Router>
-      <div className="App">
+      <div
+        className="App"
+        //  style={{
+        //     backgroundImage: `url(${backgroundImageUrl})`,
+        //     backgroundSize: "cover",
+        //     backgroundPosition: "center",
+        //     backgroundAttachment: "fixed", // Keeps the background fixed on scroll
+        //   }}
+      >
         <Navbar />
         <AnimatePresence mode="wait">
           <Routes>
