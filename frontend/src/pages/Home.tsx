@@ -88,12 +88,6 @@ export const Home: React.FC = () => {
           description="Find trusted veterinarians near you for your pet's health needs."
           link="/veterinarians"
         />
-        <FeatureCard
-          icon={<FaCalendarAlt />}
-          title="Pet Care Calendar"
-          description="Keep track of your pet's appointments, medications, and more."
-          link="/calendar"
-        />
       </section>
 
       <section className="cta">

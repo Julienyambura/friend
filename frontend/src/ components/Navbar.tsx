@@ -44,9 +44,6 @@ export const Navbar: React.FC = () => {
         <motion.li whileHover={{ scale: 1.1 }}>
           <Link to="/connect-with-us">Connect with Us</Link>
         </motion.li>
-        <motion.li whileHover={{ scale: 1.1 }}>
-          <Link to="/calendar">Pet Care Calendar</Link>
-        </motion.li>
       </motion.ul>
     </nav>
   );
