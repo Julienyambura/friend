@@ -1,0 +1,330 @@
+/* Global Tailwind Customization for Furry Friend */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Basic Body Setup */
+  body {
+    background-color: #6f4f37; /* Furry Friend Brown Background */
+    font-family: "Arial", sans-serif;
+    color: #2e2e2e; /* Darker text for better readability */
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #1a1a1a; /* Dark header text */
+    font-weight: bold;
+  }
+
+  /* Ensure links are easily readable */
+  a {
+    text-decoration: none;
+    color: #5c4033; /* Light brown links */
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: #9e7b5d; /* Lighter brown on hover */
+  }
+}
+
+/* Navbar */
+.navbar {
+  @apply bg-brown-700 text-white py-4 px-8 flex justify-between items-center shadow-md;
+}
+
+.navbar .brand {
+  @apply text-4xl font-extrabold text-gray-100;
+  font-family: "Dancing Script", cursive; /* Use Calligraphy style for logo */
+}
+
+.navbar ul {
+  @apply flex space-x-6;
+}
+
+.navbar ul li {
+  @apply text-lg text-white hover:text-brown-200;
+}
+
+.navbar ul li a {
+  @apply text-lg text-white;
+}
+
+.navbar ul li a:hover {
+  @apply underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.slideInFromLeft {
+  animation: slideInFromLeft 1s ease-out;
+}
+
+/* About Us Section */
+.about-us {
+  @apply bg-brown-200 text-black py-16 px-8;
+}
+
+.about-us h2 {
+  @apply text-3xl font-bold mb-4;
+}
+
+.about-us p {
+  @apply text-lg leading-relaxed mb-8;
+}
+
+/* Pet Profile Card */
+.pet-card {
+  @apply bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all;
+}
+
+.pet-card img {
+  @apply w-full h-64 object-cover rounded-md mb-4;
+}
+
+.pet-card .pet-info {
+  @apply text-center;
+}
+
+.pet-card .pet-name {
+  @apply text-2xl font-bold text-brown-600 mb-2;
+}
+
+.pet-card .pet-breed {
+  @apply text-lg text-gray-500 mb-4;
+}
+
+.pet-card .view-profile-btn {
+  @apply bg-brown-500 text-white py-2 px-4 rounded-md cursor-pointer transition-all hover:bg-brown-600;
+}
+
+/* Purrfect Partnership */
+.purrfect-partnership {
+  @apply bg-brown-300 py-16 px-8 text-white;
+}
+
+.purrfect-partnership h2 {
+  @apply text-3xl font-bold mb-4;
+}
+
+.purrfect-partnership .btn-adopter,
+.btn-rehomer {
+  @apply bg-brown-500 text-white py-2 px-4 rounded-md cursor-pointer transition-all hover:bg-brown-600;
+}
+
+.purrfect-partnership .form {
+  @apply bg-brown-100 p-6 rounded-lg shadow-lg;
+}
+
+.purrfect-partnership .form input,
+.purrfect-partnership .form textarea {
+  @apply w-full mb-4 p-3 rounded-md border-2 border-brown-300;
+}
+
+/* Lost and Found */
+.lost-found {
+  @apply bg-brown-200 py-16 px-8 text-black;
+}
+
+.lost-found .animal-card {
+  @apply bg-white p-4 rounded-md shadow-md mb-6;
+}
+
+.lost-found img {
+  @apply w-full h-64 object-cover rounded-md;
+}
+
+.lost-found h3 {
+  @apply font-bold text-xl mt-4;
+}
+
+.lost-found p {
+  @apply text-lg leading-relaxed mt-2;
+}
+
+/* Blog */
+.blog {
+  @apply bg-brown-300 text-white py-16 px-8;
+}
+
+.blog .post {
+  @apply bg-brown-100 p-6 rounded-lg shadow-md mb-8;
+}
+
+.blog img {
+  @apply w-full h-60 object-cover rounded-md;
+}
+
+.blog .post h3 {
+  @apply text-xl font-bold mt-4;
+}
+
+.blog .post p {
+  @apply text-lg leading-relaxed mt-2;
+}
+
+.blog .add-animal-btn {
+  @apply bg-brown-500 text-white py-2 px-4 rounded-md mt-4 cursor-pointer hover:bg-brown-600;
+}
+
+/* Pet Services */
+.services {
+  @apply bg-brown-100 py-16 px-8;
+}
+
+.services .service-card {
+  @apply bg-white p-6 rounded-lg shadow-md mb-8 hover:shadow-xl transition-all;
+}
+
+.services .service-card img {
+  @apply w-full h-48 object-cover rounded-md mb-4;
+}
+
+.services .service-card h3 {
+  @apply text-xl font-bold text-brown-700 mb-2;
+}
+
+.services .service-card p {
+  @apply text-lg text-gray-500;
+}
+
+.services .cta-button {
+  @apply bg-brown-500 text-white py-2 px-4 rounded-md mt-4 cursor-pointer hover:bg-brown-600;
+}
+
+/* Connect with Us */
+.connect-us {
+  @apply bg-brown-700 text-white py-16 px-8;
+}
+
+.connect-us h2 {
+  @apply text-3xl font-bold mb-4;
+}
+
+.connect-us form {
+  @apply flex flex-col gap-4;
+}
+
+.connect-us input,
+.connect-us textarea {
+  @apply p-3 rounded-md border-2 border-brown-300;
+}
+
+.connect-us button {
+  @apply bg-brown-500 text-white py-2 px-4 rounded-md mt-4 cursor-pointer hover:bg-brown-600;
+}
+
+/* Footer */
+.footer {
+  @apply bg-brown-800 text-white py-8 px-8 text-center;
+}
+
+.footer a {
+  @apply text-white hover:text-brown-200;
+}
+
+/* Utility Classes for Animations */
+.fadeInUp {
+  animation: fadeIn 1s ease-out;
+}
+
+.slideInFromLeft {
+  animation: slideInFromLeft 1s ease-out;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    @apply flex-col items-center;
+  }
+
+  .navbar ul {
+    @apply flex-col space-y-4;
+  }
+
+  .search-bar {
+    @apply w-full mt-4;
+  }
+
+  .about-us,
+  .purrfect-partnership,
+  .lost-found,
+  .blog,
+  .shelters,
+  .vets,
+  .connect-us {
+    @apply px-4;
+  }
+
+  .pet-adoption-grid {
+    @apply grid-cols-1;
+  }
+}
+
+/* Custom Color Palette */
+:root {
+  --brown-light: #6f4f37; /* Light brown */
+  --brown-medium: #9e7b5d; /* Medium brown */
+  --brown-dark: #5c4033; /* Dark brown */
+  --cream: #f1e1b3; /* Cream color */
+}
+
+@layer base {
+  body {
+    background-color: var(--brown-light);
+    color: var(--brown-dark);
+  }
+
+  .bg-brown-100 {
+    background-color: var(--cream);
+  }
+
+  .bg-brown-200 {
+    background-color: var(--brown-medium);
+  }
+
+  .bg-brown-300 {
+    background-color: var(--brown-light);
+  }
+
+  .bg-brown-500 {
+    background-color: var(--brown-dark);
+  }
+
+  .text-brown-600 {
+    color: var(--brown-dark);
+  }
+
+  .text-brown-700 {
+    color: var(--brown-medium);
+  }
+}

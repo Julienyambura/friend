@@ -3,15 +3,44 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import {
-  FaPaw,
-  FaHeart,
-  FaSearch,
-  FaBlog,
-  FaHospital,
-  FaCalendarAlt,
-} from "react-icons/fa";
-import "../styles/style.css";
+import { FaPaw, FaHeart, FaSearch, FaBlog, FaHospital } from "react-icons/fa";
+import "../styles/tailwind.css";
+
+// Profile picture section
+const ProfileSection: React.FC = () => (
+  <div
+    className="profile-section relative h-screen bg-cover bg-center"
+    style={{ backgroundImage: "url('/images/pets-owners.jpg')" }}
+  >
+    <div className="absolute inset-0 bg-black opacity-50"></div>
+    <div className="profile-text text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white">
+      <motion.h1
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.2 }}
+        className="text-5xl font-bold"
+      >
+        Welcome to Furry Friend
+      </motion.h1>
+      <motion.p
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.4 }}
+        className="text-lg mt-4"
+      >
+        Your one-stop platform for all things pets!
+      </motion.p>
+      <motion.button
+        className="mt-6 px-8 py-3 bg-blue-500 text-white rounded-lg text-xl hover:bg-blue-600"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6 }}
+      >
+        <Link to="/purrfect-partnership">Find Your Perfect Pet</Link>
+      </motion.button>
+    </div>
+  </div>
+);
 
 const FeatureCard: React.FC<{
   icon: React.ReactNode;
@@ -20,44 +49,69 @@ const FeatureCard: React.FC<{
   link: string;
 }> = ({ icon, title, description, link }) => (
   <motion.div
-    className="feature-card"
+    className="feature-card text-center p-6 rounded-lg shadow-lg hover:bg-gray-100 transition-all"
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
   >
     <Link to={link}>
-      <div className="icon">{icon}</div>
-      <h3>{title}</h3>
-      <p>{description}</p>
+      <div className="icon text-4xl text-blue-500 mb-4">{icon}</div>
+      <h3 className="text-xl font-semibold">{title}</h3>
+      <p className="mt-2 text-sm text-gray-600">{description}</p>
     </Link>
+  </motion.div>
+);
+
+const TestimonialCarousel: React.FC = () => (
+  <motion.div
+    className="testimonial-carousel relative overflow-hidden"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 0.6 }}
+  >
+    <h2 className="text-2xl font-semibold mb-4">What Our Users Say</h2>
+    <div className="flex space-x-6">
+      {[
+        {
+          name: "Sarah M.",
+          text: "Furry Friend helped me find my perfect companion. The process was so smooth!",
+        },
+        {
+          name: "Mike T.",
+          text: "The Lost and Found feature reunited me with my cat. I'm forever grateful!",
+        },
+        {
+          name: "Emily R.",
+          text: "The Pet Care Blog has been an invaluable resource for a first-time pet owner like me.",
+        },
+      ].map((testimonial, index) => (
+        <motion.div
+          key={index}
+          className="testimonial text-center bg-white p-4 rounded-lg shadow-md"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 * index }}
+        >
+          <p>"{testimonial.text}"</p>
+          <span className="block mt-2 font-semibold">- {testimonial.name}</span>
+        </motion.div>
+      ))}
+    </div>
   </motion.div>
 );
 
 export const Home: React.FC = () => {
   return (
     <motion.div
-      className="home"
+      className="home px-4 py-12"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <header className="hero">
-        <motion.h1
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          Welcome to Furry Friend
-        </motion.h1>
-        <motion.p
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          Your one-stop platform for all things pets!
-        </motion.p>
-      </header>
+      {/* Hero Section */}
+      <ProfileSection />
 
-      <section className="features">
+      {/* Features Section */}
+      <section className="features grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mt-16">
         <FeatureCard
           icon={<FaPaw />}
           title="Purrfect Partnership"
@@ -90,11 +144,13 @@ export const Home: React.FC = () => {
         />
       </section>
 
-      <section className="cta">
+      {/* Call to Action Section */}
+      <section className="cta text-center mt-16">
         <motion.h2
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
+          className="text-3xl font-bold"
         >
           Ready to find your furry soulmate?
         </motion.h2>
@@ -104,37 +160,45 @@ export const Home: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
+          className="mt-6 px-8 py-3 bg-blue-500 text-white rounded-lg text-xl"
         >
           <Link to="/purrfect-partnership">Get Started</Link>
         </motion.button>
       </section>
 
-      <section className="testimonials">
-        <h2>What Our Users Say</h2>
-        <div className="testimonial-container">
+      {/* Testimonial Section */}
+      <TestimonialCarousel />
+
+      {/* Adoption Success Story Section */}
+      <section className="adoption-success mt-16">
+        <h2 className="text-2xl font-semibold">Adoption Success Stories</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
           {[
             {
-              name: "Sarah M.",
-              text: "Furry Friend helped me find my perfect companion. The process was so smooth!",
+              image: "/images/adopted-pet-1.jpg",
+              name: "Bella",
+              story: "Adopted and loving her new family!",
             },
             {
-              name: "Mike T.",
-              text: "The Lost and Found feature reunited me with my cat. I'm forever grateful!",
+              image: "/images/adopted-pet-2.jpg",
+              name: "Charlie",
+              story: "A new adventure begins with my forever family!",
             },
-            {
-              name: "Emily R.",
-              text: "The Pet Care Blog has been an invaluable resource for a first-time pet owner like me.",
-            },
-          ].map((testimonial, index) => (
+          ].map((story, index) => (
             <motion.div
               key={index}
-              className="testimonial"
+              className="adopted-pet-card bg-white p-4 rounded-lg shadow-lg"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 * index }}
+              transition={{ delay: 0.3 * index }}
             >
-              <p>"{testimonial.text}"</p>
-              <span>- {testimonial.name}</span>
+              <img
+                src={story.image}
+                alt={story.name}
+                className="w-full h-56 object-cover rounded-lg"
+              />
+              <h3 className="text-xl font-semibold mt-4">{story.name}</h3>
+              <p className="text-sm mt-2">{story.story}</p>
             </motion.div>
           ))}
         </div>
