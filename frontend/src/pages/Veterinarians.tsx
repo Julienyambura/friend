@@ -1,10 +1,9 @@
 "use client";
 
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
-import "../styles/style.css";
+import "../styles/tailwind.css";
 
 interface Veterinarian {
   id: string;
@@ -61,30 +60,55 @@ export const Veterinarians: React.FC = () => {
 
   return (
     <motion.div
-      className="veterinarians"
+      className="veterinarians container mx-auto px-4 py-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <h1>Nearby Veterinarians</h1>
-      <div className="vet-list">
+      <h1 className="text-4xl font-bold text-center text-gray-800 mb-10">
+        Nearby Veterinarians
+      </h1>
+
+      {/* Vet Cards */}
+      <div className="vet-list grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {vets.map((vet) => (
           <motion.div
             key={vet.id}
-            className="vet-card"
+            className="vet-card flex flex-col bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition duration-300"
             whileHover={{ scale: 1.05 }}
           >
-            <h2>{vet.name}</h2>
-            <p>{vet.address}</p>
-            <p>Phone: {vet.phone}</p>
-            <p>Specialties: {vet.specialties.join(", ")}</p>
-            <p>Distance: {vet.distance.toFixed(2)} miles</p>
-            <a href={`tel:${vet.phone}`}>Call Now</a>
+            {/* Placeholder image for vet or a logo if available */}
+            <div className="relative w-full h-48">
+              <img
+                src="/placeholder-vet-image.jpg" // Replace with actual image if available
+                alt={vet.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="p-6 flex flex-col justify-between flex-grow">
+              <h2 className="text-2xl font-semibold text-gray-800">
+                {vet.name}
+              </h2>
+              <p className="text-gray-600 mt-2">{vet.address}</p>
+              <p className="text-gray-600 mt-2">Phone: {vet.phone}</p>
+              <p className="text-gray-600 mt-2">
+                Specialties: {vet.specialties.join(", ")}
+              </p>
+              <p className="text-gray-600 mt-2">
+                Distance: {vet.distance.toFixed(2)} miles
+              </p>
+
+              <a
+                href={`tel:${vet.phone}`}
+                className="mt-4 text-white bg-blue-500 hover:bg-blue-600 py-2 px-6 rounded-md text-center"
+              >
+                Call Now
+              </a>
+            </div>
           </motion.div>
         ))}
       </div>
     </motion.div>
   );
 };
-
-// export default Veterinarians;

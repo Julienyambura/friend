@@ -5,30 +5,22 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Navbar } from "./ components/Navbar";
 
-import "./styles/style.css";
+import "./styles/tailwind.css";
 import { Home } from "./pages/Home";
+import { AboutUs } from "./pages/AboutUs";
 import { PurrfectPartnership } from "./pages/PurrfectPartnership";
-import { Veterinarians } from "./pages/Veterinarians";
-import { ConnectWithUs } from "./pages/ConnectWithUs";
 import { LostAndFound } from "./pages/LostAndFound";
 import { Blog } from "./pages/Blog";
 import { Shelters } from "./pages/Shelters";
-import { AboutUs } from "./pages/AboutUs";
-// import { AboutUs } from "./pages/AboutUs";
+import { Veterinarians } from "./pages/Veterinarians";
+import { ConnectWithUs } from "./pages/ConnectWithUs";
+
+// Lazy load pages
+
 export const App: React.FC = () => {
-  const backgroundImageUrl = "path_to_your_image.jpg";
   return (
-    // <h1>trial home</h1>
     <Router>
-      <div
-        className="App"
-        //  style={{
-        //     backgroundImage: `url(${backgroundImageUrl})`,
-        //     backgroundSize: "cover",
-        //     backgroundPosition: "center",
-        //     backgroundAttachment: "fixed", // Keeps the background fixed on scroll
-        //   }}
-      >
+      <div className="App">
         <Navbar />
         <AnimatePresence mode="wait">
           <Routes>
@@ -49,5 +41,3 @@ export const App: React.FC = () => {
     </Router>
   );
 };
-
-// export default App;

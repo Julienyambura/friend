@@ -5,7 +5,7 @@ export const validateAnswersWithAI = async (
 ): Promise<boolean> => {
   try {
     // Replace this URL with your AI service endpoint
-    const response = await axios.post("https://your-ai-service.com/validate", {
+    const response = await axios.post("https://gemini.google.com/app", {
       answers,
     });
     return response.data.isValid;
