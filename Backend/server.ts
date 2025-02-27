@@ -1,32 +1,38 @@
-// src/server.ts
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import cors from "cors";
+import cors from "cors"; // Make sure cors is imported
 import multer from "multer";
 import path from "path";
-import Rehomer from "./src/models/Rehomer"; // Import Rehomer model
-// Importing Routes
-import authRoutes from "./src/routes/authRoutes"; // Auth routes
-import animalRoutes from "./src/routes/animalRoutes"; // Animal routes
-import rehomerRoutes from "./src/routes/rehomerRoutes"; // Rehomer routes
-import lostAnimalRoutes from "./src/routes/lostAnimalRoutes"; // Lost Animal routes
-import blogRoutes from "./src/routes/blogRoutes"; // Blog routes
-import shelterRoutes from "./src/routes/shelterRoutes"; // Shelter routes
-import veterinarianRoutes from "./src/routes/veterinarianRoutes"; // Veterinarian routes
+import Rehomer from "./src/models/Rehomer"; // Import the Rehomer model
+// Import routes (your existing routes)
+import authRoutes from "./src/routes/authRoutes";
+import animalRoutes from "./src/routes/animalRoutes";
+import rehomerRoutes from "./src/routes/rehomerRoutes";
+import lostAnimalRoutes from "./src/routes/lostAnimalRoutes";
+import blogRoutes from "./src/routes/blogRoutes";
+import shelterRoutes from "./src/routes/shelterRoutes";
+import veterinarianRoutes from "./src/routes/veterinarianRoutes";
 
 dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// CORS Configuration: Allowing the frontend URL to access the backend
+const allowedOrigins = ["http://localhost:3000"]; // Replace with your frontend URL if needed
+app.use(
+  cors({
+    origin: allowedOrigins,
+  })
+);
+
+// Middleware to handle JSON requests
 app.use(express.json());
 
-// Set up multer storage
+// Set up multer for file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads/"); // Store files in the 'uploads' folder
+    cb(null, "uploads/");
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
@@ -36,7 +42,6 @@ const storage = multer.diskStorage({
     );
   },
 });
-
 const upload = multer({ storage: storage });
 
 // MongoDB Connection
@@ -82,7 +87,7 @@ app.post("/api/rehomer", upload.array("images", 10), async (req, res) => {
       temperament,
       healthConditions,
       description,
-      images, // List of image paths
+      images,
     });
 
     // Save the new Rehomer to the database
@@ -107,4 +112,6 @@ if (!fs.existsSync(uploadsDir)) {
 
 // Start the Server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import axios from "axios";
 
 // Animal Details Form
-const AnimalDetailsForm: React.FC<{
+export const AnimalDetailsForm: React.FC<{
   animalData: any;
   setAnimalData: any;
 }> = ({ animalData, setAnimalData }) => {
@@ -42,7 +42,56 @@ const AnimalDetailsForm: React.FC<{
             />
           </div>
 
-          {/* Additional fields for breed, age, and description would follow the same pattern as above */}
+          <div>
+            <label
+              htmlFor="breed"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Breed:
+            </label>
+            <input
+              type="text"
+              id="breed"
+              name="breed"
+              value={animalData.breed}
+              onChange={handleChange}
+              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="age"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Age:
+            </label>
+            <input
+              type="text"
+              id="age"
+              name="age"
+              value={animalData.age}
+              onChange={handleChange}
+              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="description"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Description:
+            </label>
+            <textarea
+              id="description"
+              name="description"
+              value={animalData.description}
+              onChange={handleChange}
+              rows={4}
+              className="mt-2 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+          </div>
         </div>
       </form>
     </div>
@@ -154,10 +203,6 @@ const RehomerForm: React.FC = () => {
     type: "",
     breed: "",
     age: "",
-    gender: "",
-    size: "",
-    temperament: "",
-    healthConditions: "",
     description: "",
   });
 
@@ -255,5 +300,4 @@ const RehomerForm: React.FC = () => {
     </motion.div>
   );
 };
-
 export default RehomerForm;
