@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
@@ -99,7 +97,7 @@ const AdopterForm: React.FC = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full p-3 border rounded-md"
+              className="w-full p-3 border rounded-md text-gray-900 bg-white"
               placeholder="Search for an animal..."
             />
           </div>
@@ -144,7 +142,7 @@ const AdopterForm: React.FC = () => {
                 <input
                   type="text"
                   id={question.id}
-                  className="mt-2 p-2 w-full border border-gray-300 rounded-md"
+                  className="mt-2 p-2 w-full border border-gray-300 rounded-md text-gray-800"
                   onChange={(e) =>
                     handleAnswerChange(question.id, e.target.value)
                   }
@@ -180,7 +178,7 @@ const AdopterForm: React.FC = () => {
             name="livingSituation"
             value={adopterProfile.livingSituation}
             onChange={handleProfileChange}
-            className="p-2 w-full border rounded-md"
+            className="p-2 w-full border rounded-md text-gray-800 bg-white"
             placeholder="Living Situation"
           />
           <input
@@ -188,7 +186,7 @@ const AdopterForm: React.FC = () => {
             name="petExperience"
             value={adopterProfile.petExperience}
             onChange={handleProfileChange}
-            className="p-2 w-full border rounded-md"
+            className="p-2 w-full border rounded-md text-gray-800 bg-white"
             placeholder="Pet Experience"
           />
           <input
@@ -196,7 +194,7 @@ const AdopterForm: React.FC = () => {
             name="lifestyle"
             value={adopterProfile.lifestyle}
             onChange={handleProfileChange}
-            className="p-2 w-full border rounded-md"
+            className="p-2 w-full border rounded-md text-gray-800 bg-white"
             placeholder="Lifestyle"
           />
         </form>

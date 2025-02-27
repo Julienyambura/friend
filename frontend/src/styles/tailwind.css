@@ -6,7 +6,7 @@
 @layer base {
   /* Basic Body Setup */
   body {
-    background-color: #6f4f37; /* Furry Friend Brown Background */
+    background-color: antiquewhite; /* Furry Friend Brown Background */
     font-family: "Arial", sans-serif;
     color: #2e2e2e; /* Darker text for better readability */
     line-height: 1.6;
@@ -22,10 +22,9 @@
     font-weight: bold;
   }
 
-  /* Ensure links are easily readable */
   a {
     text-decoration: none;
-    color: #5c4033; /* Light brown links */
+    color: #5c4033; 
     transition: color 0.3s ease;
   }
 
@@ -40,7 +39,7 @@
 }
 
 .navbar .brand {
-  @apply text-4xl font-extrabold text-gray-100;
+  @apply text-4xl font-extrabold text-white;
   font-family: "Dancing Script", cursive; /* Use Calligraphy style for logo */
 }
 
@@ -49,7 +48,7 @@
 }
 
 .navbar ul li {
-  @apply text-lg text-white hover:text-brown-200;
+  @apply text-lg text-white hover:text-white;
 }
 
 .navbar ul li a {

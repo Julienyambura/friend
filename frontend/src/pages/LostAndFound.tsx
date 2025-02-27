@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import axios from "axios";
 import "../styles/tailwind.css";
 
 // Define the interface for the LostAnimal type
@@ -19,45 +18,60 @@ interface LostAnimal {
 export const LostAndFound: React.FC = () => {
   const [lostAnimals, setLostAnimals] = useState<LostAnimal[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [searchQuery, setSearchQuery] = useState<string>("");
-  const [filteredAnimals, setFilteredAnimals] =
-    useState<LostAnimal[]>(lostAnimals);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [showReportMissingModal, setShowReportMissingModal] =
     useState<boolean>(false);
 
-  // Fetch lost animals from the API
+  // Static data for testing purposes
   useEffect(() => {
     const fetchLostAnimals = async () => {
       setLoading(true);
-      try {
-        const response = await axios.get<LostAnimal[]>("/api/lost-animals");
-        setLostAnimals(response.data);
-        setFilteredAnimals(response.data);
-      } catch (error) {
-        console.error("Error fetching lost animals:", error);
-      } finally {
-        setLoading(false);
-      }
+      // Simulating an API call with static data
+      const animals: LostAnimal[] = [
+        {
+          id: "1",
+          name: "Buddy",
+          description: "A friendly golden retriever, loves to play fetch.",
+          image: "/images/golden-retriever.jpg", // Use a placeholder if image is missing
+          lastSeen: "2025-02-20",
+          type: "Dog",
+          location: "Central Park",
+        },
+        {
+          id: "2",
+          name: "Whiskers",
+          description:
+            "A curious tabby cat, loves to explore the neighborhood.",
+          image: "/images/tabby-cat.jpg", // Use a placeholder if image is missing
+          lastSeen: "2025-02-18",
+          type: "Cat",
+          location: "Eastside Residential Area",
+        },
+        {
+          id: "3",
+          name: "Lola",
+          description: "A small rabbit, loves carrots and running in circles.",
+          image: "/images/rabbit.jpg", // Use a placeholder if image is missing
+          lastSeen: "2025-02-17",
+          type: "Rabbit",
+          location: "Sunnydale Garden",
+        },
+        {
+          id: "4",
+          name: "Coco",
+          description: "A colorful parrot, very talkative and loves company.",
+          image: "/images/parrot.jpg", // Use a placeholder if image is missing
+          lastSeen: "2025-02-15",
+          type: "Bird",
+          location: "Greenwood Balcony",
+        },
+      ];
+      setLostAnimals(animals);
+      setLoading(false);
     };
+
     fetchLostAnimals();
   }, []);
-
-  // Filter animals based on search query
-  useEffect(() => {
-    if (searchQuery === "") {
-      setFilteredAnimals(lostAnimals);
-    } else {
-      setFilteredAnimals(
-        lostAnimals.filter(
-          (animal) =>
-            animal.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            animal.type.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            animal.location.toLowerCase().includes(searchQuery.toLowerCase())
-        )
-      );
-    }
-  }, [searchQuery, lostAnimals]);
 
   // Function to open and close the modal for reporting sightings
   const handleModalToggle = () => setShowModal(!showModal);
@@ -75,23 +89,12 @@ export const LostAndFound: React.FC = () => {
     >
       <h1 className="text-3xl font-semibold text-center">Lost and Found</h1>
 
-      {/* Search and Filter Bar */}
-      <div className="my-6 flex justify-center">
-        <input
-          type="text"
-          placeholder="Search by animal name, type, or location..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="p-3 w-full sm:w-80 border-2 border-gray-300 rounded-md"
-        />
-      </div>
-
       {/* Loading State */}
       {loading && <p className="text-center text-xl">Loading animals...</p>}
 
       {/* Animal Grid */}
       <div className="animal-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredAnimals.map((animal) => (
+        {lostAnimals.map((animal) => (
           <motion.div
             key={animal.id}
             className="animal-card p-4 border rounded-lg shadow-lg bg-white hover:scale-105 transition-transform"

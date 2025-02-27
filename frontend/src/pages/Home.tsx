@@ -18,7 +18,7 @@ const ProfileSection: React.FC = () => (
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="text-5xl font-bold"
+        className="text-5xl font-bold text-white"
       >
         Welcome to Furry Friend
       </motion.h1>
@@ -31,7 +31,7 @@ const ProfileSection: React.FC = () => (
         Your one-stop platform for all things pets!
       </motion.p>
       <motion.button
-        className="mt-6 px-8 py-3 bg-blue-500 text-white rounded-lg text-xl hover:bg-blue-600"
+        className="mt-6 px-8 py-3 bg-green-600 text-white rounded-lg text-xl hover:bg-blue-600"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6 }}

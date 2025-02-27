@@ -7,8 +7,9 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["node", "express"] // Ensure express types are included here
   },
-  "include": ["server.ts"],
+  "include": ["src/**/*"], // Include all files in the 'src' folder
   "exclude": ["node_modules"]
 }

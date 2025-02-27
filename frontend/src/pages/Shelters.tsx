@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import axios from "axios";
 import "../styles/tailwind.css";
 
+// Define Shelter Interface
 interface Shelter {
   id: string;
   name: string;
@@ -45,14 +46,46 @@ export const Shelters: React.FC = () => {
   useEffect(() => {
     const fetchShelters = async () => {
       if (userLocation) {
-        try {
-          const response = await axios.get<Shelter[]>(
-            `/api/shelters?lat=${userLocation.lat}&lng=${userLocation.lng}`
-          );
-          setShelters(response.data);
-        } catch (error) {
-          console.error("Error fetching shelters:", error);
-        }
+        // Sample shelter data
+        const sampleShelters: Shelter[] = [
+          {
+            id: "1",
+            name: "Green Paws Animal Shelter",
+            address: "123 Green St, Green City",
+            phone: "555-1234",
+            website: "http://greenpaws.org",
+            distance: 2.5,
+            image: "/images/shelter1.jpg", // Placeholder image
+          },
+          {
+            id: "2",
+            name: "Sunnydale Animal Rescue",
+            address: "456 Sunnydale Ave, Sunshine Town",
+            phone: "555-5678",
+            website: "http://sunnydale.org",
+            distance: 3.7,
+            image: "/images/shelter2.jpg", // Placeholder image
+          },
+          {
+            id: "3",
+            name: "City Animal Shelter",
+            address: "789 City Blvd, Metropolis",
+            phone: "555-8765",
+            website: "http://cityanimalshelter.org",
+            distance: 5.1,
+            image: "/images/shelter3.jpg", // Placeholder image
+          },
+          {
+            id: "4",
+            name: "Caring Hearts Animal Shelter",
+            address: "101 Paws Ln, Pet Village",
+            phone: "555-9876",
+            website: "http://caringhearts.org",
+            distance: 4.2,
+            image: "/images/shelter4.jpg", // Placeholder image
+          },
+        ];
+        setShelters(sampleShelters);
       }
     };
 

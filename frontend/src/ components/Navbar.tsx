@@ -15,8 +15,8 @@ export const Navbar: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <Link to="/" className="text-4xl font-bold">
-          F2
+        <Link to="/" className="text-4xl font-bold text-green-600">
+          𝔽2𝕡𝕒𝕨𝕤
         </Link>
       </motion.div>
 
@@ -30,7 +30,7 @@ export const Navbar: React.FC = () => {
         <motion.li whileHover={{ scale: 1.1 }}>
           <Link
             to="/about-us"
-            className="text-lg font-medium hover:text-blue-500"
+            className="text-lg font-medium  hover:text-brown-100"
           >
             About Us
           </Link>
@@ -38,7 +38,7 @@ export const Navbar: React.FC = () => {
         <motion.li whileHover={{ scale: 1.1 }}>
           <Link
             to="/purrfect-partnership"
-            className="text-lg font-medium hover:text-blue-500"
+            className="text-lg font-medium hover:text-brown-100"
           >
             Purrfect Partnership
           </Link>
@@ -46,20 +46,20 @@ export const Navbar: React.FC = () => {
         <motion.li whileHover={{ scale: 1.1 }}>
           <Link
             to="/lost-and-found"
-            className="text-lg font-medium hover:text-blue-500"
+            className="text-lg font-medium hover:text-brown-100"
           >
             Lost and Found
           </Link>
         </motion.li>
         <motion.li whileHover={{ scale: 1.1 }}>
-          <Link to="/blog" className="text-lg font-medium hover:text-blue-500">
+          <Link to="/blog" className="text-lg font-medium hover:text-brown-100">
             Blog
           </Link>
         </motion.li>
         <motion.li whileHover={{ scale: 1.1 }}>
           <Link
             to="/shelters"
-            className="text-lg font-medium hover:text-blue-500"
+            className="text-lg font-medium hover:text-brown-100"
           >
             Shelters
           </Link>
@@ -67,7 +67,7 @@ export const Navbar: React.FC = () => {
         <motion.li whileHover={{ scale: 1.1 }}>
           <Link
             to="/veterinarians"
-            className="text-lg font-medium hover:text-blue-500"
+            className="text-lg font-medium hover:text-brown-100"
           >
             Veterinarians
           </Link>
@@ -75,7 +75,7 @@ export const Navbar: React.FC = () => {
         <motion.li whileHover={{ scale: 1.1 }}>
           <Link
             to="/connect-with-us"
-            className="text-lg font-medium hover:text-blue-500"
+            className="text-lg  font-medium hover:text-brown-100"
           >
             Connect with Us
           </Link>
