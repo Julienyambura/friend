@@ -30,7 +30,7 @@ export const Navbar: React.FC = () => {
         <motion.li whileHover={{ scale: 1.1 }}>
           <Link
             to="/about-us"
-            className="text-lg font-medium  hover:text-brown-100"
+            className="text-lg font-medium  hover:text-green-600"
           >
             About Us
           </Link>
@@ -38,7 +38,7 @@ export const Navbar: React.FC = () => {
         <motion.li whileHover={{ scale: 1.1 }}>
           <Link
             to="/purrfect-partnership"
-            className="text-lg font-medium hover:text-brown-100"
+            className="text-lg font-medium hover:text-green-600"
           >
             Purrfect Partnership
           </Link>
@@ -46,28 +46,28 @@ export const Navbar: React.FC = () => {
         <motion.li whileHover={{ scale: 1.1 }}>
           <Link
             to="/lost-and-found"
-            className="text-lg font-medium hover:text-brown-100"
+            className="text-lg font-medium hover:text-green-600"
           >
             Lost and Found
           </Link>
         </motion.li>
         <motion.li whileHover={{ scale: 1.1 }}>
-          <Link to="/blog" className="text-lg font-medium hover:text-brown-100">
+          <Link to="/blog" className="text-lg font-medium hover:text-green-600">
             Blog
           </Link>
         </motion.li>
         <motion.li whileHover={{ scale: 1.1 }}>
           <Link
             to="/shelters"
-            className="text-lg font-medium hover:text-brown-100"
+            className="text-lg font-medium hover:text-green-600"
           >
-            Shelters
+            {/* Shelters
           </Link>
         </motion.li>
         <motion.li whileHover={{ scale: 1.1 }}>
           <Link
             to="/veterinarians"
-            className="text-lg font-medium hover:text-brown-100"
+            className="text-lg font-medium hover:text-green-600"
           >
             Veterinarians
           </Link>
@@ -75,9 +75,9 @@ export const Navbar: React.FC = () => {
         <motion.li whileHover={{ scale: 1.1 }}>
           <Link
             to="/connect-with-us"
-            className="text-lg  font-medium hover:text-brown-100"
-          >
-            Connect with Us
+            className="text-lg  font-medium hover:text-green-600"
+          > */}
+            {/* Connect with Us */}
           </Link>
         </motion.li>
       </motion.ul>

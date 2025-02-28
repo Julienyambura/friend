@@ -2,8 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import "../styles/tailwind.css";
 
-import image2 from "../assets/ image2.jpeg";
+import image5 from "../assets/image5.jpeg";
 import image1 from "../assets/image1.jpeg";
+import image6 from "../assets/image6.jpeg";
 // Correct path relative to your current file
 // console.log(image2);
 console.log(image1);
@@ -89,9 +90,10 @@ export const AboutUs: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             <div className="value-card bg-white p-6 rounded-lg shadow-lg">
               <img
-                src={image2}
-                alt="image2"
-                className="w-12 h-12 mx-auto mb-4"
+                src={image6}
+                alt="image6"
+                className="w-64 h-96
+               object-cover rounded-sm mx-auto"
               />
 
               <h3 className="text-xl font-semibold text-brown-600 mb-2">
@@ -106,7 +108,8 @@ export const AboutUs: React.FC = () => {
               <img
                 src={image1}
                 alt="image1"
-                className="w-12 h-12 mx-auto mb-4"
+                className="w-64 h-96
+               object-cover rounded-sm mx-auto"
               />
               <h3 className="text-xl font-semibold text-brown-600 mb-2">
                 Integrity
@@ -118,9 +121,10 @@ export const AboutUs: React.FC = () => {
             </div>
             <div className="value-card bg-white p-6 rounded-lg shadow-lg">
               <img
-                src={image2}
-                alt="image2"
-                className="w-12 h-12 mx-auto mb-4"
+                src={image5}
+                alt="image5"
+                className="w-64 h-96
+               object-cover rounded-sm mx-auto"
               />
               <h3 className="text-xl font-semibold text-brown-600 mb-2">
                 Community

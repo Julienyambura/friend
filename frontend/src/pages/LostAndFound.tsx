@@ -3,7 +3,10 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "../styles/tailwind.css";
-
+import image11 from "../assets/image11.jpeg";
+import image8 from "../assets/image8.jpeg";
+import image9 from "../assets/image9.jpeg";
+import image10 from "../assets/image10.jpeg";
 // Define the interface for the LostAnimal type
 interface LostAnimal {
   id: string;
@@ -32,7 +35,7 @@ export const LostAndFound: React.FC = () => {
           id: "1",
           name: "Buddy",
           description: "A friendly golden retriever, loves to play fetch.",
-          image: "/images/golden-retriever.jpg", // Use a placeholder if image is missing
+          image: image8,
           lastSeen: "2025-02-20",
           type: "Dog",
           location: "Central Park",
@@ -42,7 +45,7 @@ export const LostAndFound: React.FC = () => {
           name: "Whiskers",
           description:
             "A curious tabby cat, loves to explore the neighborhood.",
-          image: "/images/tabby-cat.jpg", // Use a placeholder if image is missing
+          image: image10,
           lastSeen: "2025-02-18",
           type: "Cat",
           location: "Eastside Residential Area",
@@ -51,7 +54,7 @@ export const LostAndFound: React.FC = () => {
           id: "3",
           name: "Lola",
           description: "A small rabbit, loves carrots and running in circles.",
-          image: "/images/rabbit.jpg", // Use a placeholder if image is missing
+          image: image11,
           lastSeen: "2025-02-17",
           type: "Rabbit",
           location: "Sunnydale Garden",
@@ -60,7 +63,7 @@ export const LostAndFound: React.FC = () => {
           id: "4",
           name: "Coco",
           description: "A colorful parrot, very talkative and loves company.",
-          image: "/images/parrot.jpg", // Use a placeholder if image is missing
+          image: image9,
           lastSeen: "2025-02-15",
           type: "Bird",
           location: "Greenwood Balcony",
@@ -103,7 +106,8 @@ export const LostAndFound: React.FC = () => {
             <img
               src={animal.image || "/placeholder.svg"}
               alt={animal.name}
-              className="w-full h-48 object-cover rounded-md"
+              className="w-64 h-96
+               object-cover rounded-sm mx-auto"
             />
             <h3 className="mt-4 text-xl font-bold">{animal.name}</h3>
             <p className="text-gray-700">{animal.description}</p>
@@ -113,7 +117,7 @@ export const LostAndFound: React.FC = () => {
 
             <button
               onClick={handleModalToggle}
-              className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-md"
+              className="mt-4 bg-green-600 text-white px-6 py-2 rounded-md"
             >
               Report Sighting
             </button>

@@ -5,28 +5,34 @@ import { motion } from "framer-motion";
 import axios from "axios";
 import "../styles/tailwind.css";
 
+// Import the images
+import image9 from "../assets/image9.jpeg";
+import image10 from "../assets/image10.jpeg";
+import image11 from "../assets/image11.jpeg";
+import image12 from "../assets/image12.jpeg";
+
 // Defining the BlogPost interface
 interface BlogPost {
   isExpanded: any;
   id: string;
   title: string;
   excerpt: string;
-  image: string;
-  content: string; // Full content for the individual post
+  image: string; // Single image URL
+  content: string;
 }
 
 export const Blog: React.FC = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  // Dummy data for the blog posts (this can be replaced with real API data)
+  // Dummy data for the blog posts with a single image
   const dummyPosts: BlogPost[] = [
     {
       id: "1",
       title: "The Importance of Pet Nutrition",
       excerpt:
         "Proper nutrition is essential for your pet's health and longevity. Learn more about what makes up a healthy diet for pets.",
-      image: "/images/image1.jpeg",
+      image: image9, // Use the imported image
       content:
         "Full content about Pet Nutrition... This content explains why nutrition is vital for pets and the different nutrients they require.",
       isExpanded: undefined,
@@ -36,7 +42,7 @@ export const Blog: React.FC = () => {
       title: "How to Train Your Dog",
       excerpt:
         "Training your dog is essential for a well-behaved companion. Get to know the best methods to train your furry friend.",
-      image: "/images/image2.jpeg",
+      image: image10, // Use the imported image
       content:
         "Full content about Dog Training... This content covers the basics of dog training, including obedience and behavior correction.",
       isExpanded: undefined,
@@ -46,7 +52,7 @@ export const Blog: React.FC = () => {
       title: "Choosing the Right Pet for Your Family",
       excerpt:
         "Picking the right pet can be a life-changing decision for your family. Find out what factors to consider when adopting.",
-      image: "/images/image3.jpeg",
+      image: image11, // Use the imported image
       content:
         "Full content about Choosing the Right Pet... This post helps you select the ideal pet for your family based on your lifestyle.",
       isExpanded: undefined,
@@ -56,7 +62,7 @@ export const Blog: React.FC = () => {
       title: "Dealing with Pet Anxiety",
       excerpt:
         "Pet anxiety is common and can be managed with the right techniques. Here are some tips to help your pet feel more comfortable.",
-      image: "/images/image4.jpeg",
+      image: image12, // Use the imported image
       content:
         "Full content about Dealing with Pet Anxiety... This content explains how to recognize anxiety in pets and how to alleviate their stress.",
       isExpanded: undefined,
@@ -71,7 +77,6 @@ export const Blog: React.FC = () => {
         setBlogPosts(response.data);
       } catch (error) {
         console.error("Error fetching blog posts:", error);
-        // If API fails, use dummy data
         setBlogPosts(dummyPosts);
       } finally {
         setLoading(false);
@@ -84,9 +89,7 @@ export const Blog: React.FC = () => {
   const handleReadMore = (id: string) => {
     setBlogPosts((prevPosts) =>
       prevPosts.map((post) =>
-        post.id === id
-          ? { ...post, isExpanded: !post.isExpanded } // Toggle the content visibility
-          : post
+        post.id === id ? { ...post, isExpanded: !post.isExpanded } : post
       )
     );
   };
@@ -98,7 +101,6 @@ export const Blog: React.FC = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      {/* Blog Posts Grid: Display 2x2 */}
       <div className="blog-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 mb-6">
         {blogPosts.map((post) => (
           <motion.div
@@ -107,9 +109,10 @@ export const Blog: React.FC = () => {
             whileHover={{ scale: 1.05 }}
           >
             <img
-              src={post.image || "/images/image2.jpeg"}
+              src={post.image}
               alt={post.title}
-              className="w-full h-48 object-cover rounded-md mb-4"
+              className="w-64 h-96
+              object-cover rounded-sm mx-auto"
             />
             <div className="content">
               <h2 className="text-2xl font-semibold text-gray-800">
@@ -119,8 +122,8 @@ export const Blog: React.FC = () => {
                 {post.isExpanded ? post.content : post.excerpt}
               </p>
               <button
-                className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors"
-                onClick={() => handleReadMore(post.id)} // Toggle post content
+                className="mt-4 bg-green-600 text-white px-6 py-2 rounded-md hover:bg-brown-600 transition-colors"
+                onClick={() => handleReadMore(post.id)}
               >
                 {post.isExpanded ? "Show Less" : "Read More"}
               </button>

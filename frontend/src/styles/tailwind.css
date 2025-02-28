@@ -24,7 +24,7 @@
 
   a {
     text-decoration: none;
-    color: #5c4033; 
+    color: #5c4033;
     transition: color 0.3s ease;
   }
 
@@ -180,7 +180,7 @@
 }
 
 .blog img {
-  @apply w-full h-60 object-cover rounded-md;
+  @apply w-24 h-32 object-cover rounded-md;
 }
 
 .blog .post h3 {
@@ -218,6 +218,25 @@
 
 .services .cta-button {
   @apply bg-brown-500 text-white py-2 px-4 rounded-md mt-4 cursor-pointer hover:bg-brown-600;
+}
+
+/* Profile Section with Background Image */
+/* Profile Section without Background Image */
+.profile-section {
+  background-color: #6f4f37; /* Use a solid color or leave it as is */
+  background-size: cover;
+  background-position: center;
+  padding: 60px 0;
+  color: white;
+  text-align: center;
+}
+
+.profile-section h2 {
+  @apply text-4xl font-bold mb-4;
+}
+
+.profile-section p {
+  @apply text-lg mb-8;
 }
 
 /* Connect with Us */

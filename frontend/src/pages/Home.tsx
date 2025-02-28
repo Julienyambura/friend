@@ -5,12 +5,15 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaPaw, FaHeart, FaSearch, FaBlog, FaHospital } from "react-icons/fa";
 import "../styles/tailwind.css";
+import image4 from "../assets/image4.jpeg";
+import image10 from "../assets/image10.jpeg";
+// import image13 from "../assets/image13.jpeg";
 
 // Profile picture section
 const ProfileSection: React.FC = () => (
   <div
     className="profile-section relative h-screen bg-cover bg-center"
-    style={{ backgroundImage: "url('/images/pets-owners.jpg')" }}
+    // style={{ backgroundImage: `url(${image13})` }} // Set the background image directly using inline style
   >
     <div className="absolute inset-0 bg-black opacity-50"></div>
     <div className="profile-text text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white">
@@ -31,7 +34,7 @@ const ProfileSection: React.FC = () => (
         Your one-stop platform for all things pets!
       </motion.p>
       <motion.button
-        className="mt-6 px-8 py-3 bg-green-600 text-white rounded-lg text-xl hover:bg-blue-600"
+        className="mt-6 px-8 py-3 bg-green-600 text-white rounded-lg text-xl hover:bg-green-600"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6 }}
@@ -54,7 +57,7 @@ const FeatureCard: React.FC<{
     whileTap={{ scale: 0.95 }}
   >
     <Link to={link}>
-      <div className="icon text-4xl text-blue-500 mb-4">{icon}</div>
+      <div className="icon text-4xl text-green-600 mb-4">{icon}</div>
       <h3 className="text-xl font-semibold">{title}</h3>
       <p className="mt-2 text-sm text-gray-600">{description}</p>
     </Link>
@@ -109,7 +112,6 @@ export const Home: React.FC = () => {
     >
       {/* Hero Section */}
       <ProfileSection />
-
       {/* Features Section */}
       <section className="features grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mt-16">
         <FeatureCard
@@ -143,7 +145,6 @@ export const Home: React.FC = () => {
           link="/veterinarians"
         />
       </section>
-
       {/* Call to Action Section */}
       <section className="cta text-center mt-16">
         <motion.h2
@@ -160,34 +161,32 @@ export const Home: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="mt-6 px-8 py-3 bg-blue-500 text-white rounded-lg text-xl"
+          className="mt-6 px-8 py-3 bg-green-600 text-white rounded-lg text-xl"
         >
           <Link to="/purrfect-partnership">Get Started</Link>
         </motion.button>
       </section>
-
       {/* Testimonial Section */}
       <TestimonialCarousel />
-
-      {/* Adoption Success Story Section */}
+      Adoption Success Story Section
       <section className="adoption-success mt-16">
         <h2 className="text-2xl font-semibold">Adoption Success Stories</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
           {[
             {
-              image: "/images/adopted-pet-1.jpg",
+              image: image4,
               name: "Bella",
               story: "Adopted and loving her new family!",
             },
             {
-              image: "/images/adopted-pet-2.jpg",
+              image: image10,
               name: "Charlie",
               story: "A new adventure begins with my forever family!",
             },
           ].map((story, index) => (
             <motion.div
               key={index}
-              className="adopted-pet-card bg-white p-4 rounded-lg shadow-lg"
+              className="adopted-pet-card bg-brown p-4 rounded-lg shadow-lg"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 * index }}
@@ -195,10 +194,10 @@ export const Home: React.FC = () => {
               <img
                 src={story.image}
                 alt={story.name}
-                className="w-full h-56 object-cover rounded-lg"
+                className="w-32 h-48 object-cover rounded-md"
               />
               <h3 className="text-xl font-semibold mt-4">{story.name}</h3>
-              <p className="text-sm mt-2">{story.story}</p>
+              <p className="text-md text-white mt-2">{story.story}</p>
             </motion.div>
           ))}
         </div>
